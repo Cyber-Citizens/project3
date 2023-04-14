@@ -5,13 +5,15 @@
 ;; (set-member '(1 2) 1) => T
 ;; (set-member '(1 2) 3) => NIL
 (defun set-member (set item)
-(cond
-((null set) nil)
-((equal (car set) item) t)
-(t (set-member (cdr set) item))
-)
+  (cond
+    ((null set) NIL)
+    ((equal (car set) item) T)
+    (t (set-member (cdr set) item))
+  )
 )
 
+(print (set-member '(1 2) 1))
+(print (set-member '(1 2) 3))
 
 ;; Return the union of set-1 and set-2.
 ;; The result should contain no duplicates.
@@ -19,9 +21,16 @@
 ;; Examples:
 ;; (set-union '(1 2) '(2 4)) => '(1 2 4)
 (defun set-union (set-1 set-2)
-;;Your implementation go here
+  (cond
+    ((null set-1) set-2)
+    ((set-member set-2 (car set-1))
+     (set-union (cdr set-1) set-2))
+    (t (cons (car set-1) (set-union (cdr set-1) set-2)))
+  )
 )
 
+(print (set-union '(1 2) '(2 4)))
+(print (set-union '(1 2) '(3 4)))
 
 ;; Return the intersection of set-1 and set-2.
 ;; The result should contain no duplicates.
@@ -29,9 +38,16 @@
 ;; Examples:
 ;; (set-intersection '(1 2) '(2 4)) => '(2)
 (defun set-intersection (set-1 set-2)
-;;Your implementation go here
+  (cond
+    ((null set-1) NIL)
+    ((set-member set-2 (car set-1))
+     (cons (car set-1) (set-intersection (cdr set-1) set-2)))
+    (t (set-intersection (cdr set-1) set-2))
+  )
 )
 
+(print (set-intersection '(1 2) '(2 4)))
+(print (set-intersection '(1 4) '(2 4)))
 
 ;; Return the difference of set-1 and set-2.
 ;; The result should contain no duplicates.

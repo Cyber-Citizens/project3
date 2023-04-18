@@ -56,8 +56,14 @@
 ;; Examples:
 ;; (set-diff '(1 2) '(2 4)) => '(1)
 (defun set-diff (set-1 set-2)
-;;Your implementation go here
+  (cond
+    ((null set-1) NIL)
+    ((set-member set-2 (car set-1))
+    (set-diff (cdr set-1) set-2))
+    (t (cons (car set-1) (set-diff (cdr set-1) set-2)))
+  )
 )
+
 
 
 ;; Return the exclusive or of a and b
@@ -66,7 +72,10 @@
 ;; (boolean-xor t nil) => t
 ;; (boolean-xor nil nil) => nil
 (defun boolean-xor (a b)
-;;Your implementation go here
+  (if (eq a b)
+      NIL
+      T
+  )
 )
 
 ;; Return the implication of a and b

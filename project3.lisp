@@ -84,7 +84,7 @@
 ;; (boolean-iff t nil) => nil
 ;; (boolean-iff nil nil) => t
 (defun boolean-iff (a b)
-;;<Your implementation go here >
+(EQ a b)
 )
 
 

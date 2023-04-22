@@ -1,0 +1,10 @@
+Please each of us lets make sure the rest of this code is not using any prohibited Lisp functions, macros, operators, and constants in our 
+definitions (Particulary the last and final method)
+
+We should also each make sure we run it on our machines so it works on everyones environment in case Professor Le runs our code on his machine.
+
+****** We were first able to get the correct output but we had been using a prohibited function "dolist", which we were able to cirmcumvent by looping for "foo in range x"
+
+****** We were recieving a stack overflow because I initially had boolean-eval recursively calling itself over and over again but everything now appears to be in-line after
+deleting the redundant call to itself.
+

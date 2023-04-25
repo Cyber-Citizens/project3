@@ -15,7 +15,7 @@
 (print 1)
 (print (set-member '(1 2) 1))
 (print (set-member '(1 2) 3))
-
+(print "end method")
 ;; Return the union of set-1 and set-2.
 ;; The result should contain no duplicates.
 ;; Assume set-1 contains no duplicates and set-2 contains no duplicates.
@@ -33,6 +33,7 @@
 (print 2)
 (print (set-union '(1 2) '(2 4)))
 (print (set-union '(1 2) '(3 4)))
+(print "end method")
 
 ;; Return the intersection of set-1 and set-2.
 ;; The result should contain no duplicates.
@@ -51,6 +52,7 @@
 (print 3)
 (print (set-intersection '(1 2) '(2 4)))
 (print (set-intersection '(1 4) '(2 4)))
+(print "end method")
 
 ;; Return the difference of set-1 and set-2.
 ;; The result should contain no duplicates.
@@ -69,6 +71,7 @@
 
 (print 4)
 (print (set-diff '(1 2) '(2 4)))
+(print "end method")
 
 ;; Return the exclusive or of a and b
 ;;
@@ -85,6 +88,7 @@
 (print 5)
 (print (boolean-xor t nil))
 (print (boolean-xor nil nil))
+(print "end method")
 
 ;; Return the implication of a and b
 ;;
@@ -102,6 +106,7 @@
 (print (boolean-implies t nil))
 (print (boolean-implies nil nil))
 (print (boolean-implies nil t))
+(print "end method")
 
 ;; Return the bi-implication (if and only if) of a and b
 ;;
@@ -115,6 +120,7 @@
 (print 7)
 (print (boolean-iff t nil))
 (print (boolean-iff nil nil))
+(print "end method")
 
 ;; Evaluate a boolean expression.
 ;; Handle NOT, AND, OR, XOR, IMPLIES, and IFF.
@@ -167,3 +173,4 @@
 
 (print (boolean-eval '(and t nil)))
 (print (boolean-eval '(and t (or nil t))))
+(print "end method")

@@ -5,5 +5,6 @@ A terminal and [SBCL](https://www.sbcl.org/)
 
 To run, execute this command:
 ````
-sbcl project3.lisp
+sbcl --script project3.lisp
 ````
+Or just check github actions tab lol

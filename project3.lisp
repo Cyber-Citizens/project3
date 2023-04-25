@@ -12,6 +12,7 @@
   )
 )
 
+(print 1)
 (print (set-member '(1 2) 1))
 (print (set-member '(1 2) 3))
 
@@ -29,6 +30,7 @@
   )
 )
 
+(print 2)
 (print (set-union '(1 2) '(2 4)))
 (print (set-union '(1 2) '(3 4)))
 
@@ -46,6 +48,7 @@
   )
 )
 
+(print 3)
 (print (set-intersection '(1 2) '(2 4)))
 (print (set-intersection '(1 4) '(2 4)))
 
@@ -64,6 +67,8 @@
   )
 )
 
+(print 4)
+(print (set-diff '(1 2) '(2 4)))
 
 
 ;; Return the exclusive or of a and b
@@ -78,14 +83,26 @@
   )
 )
 
+(print 5)
+(print (boolean-xor t nil))
+(print (boolean-xor nil nil))
+
 ;; Return the implication of a and b
 ;;
 ;; Examples:
 ;; (boolean-implies t nil) => nil
 ;; (boolean-implies nil nil) => t
 (defun boolean-implies (a b)
-;;<Your implementation go here >
+  (if a
+      b
+      T
+  )
 )
+
+(print 6)
+(print (boolean-implies t nil))
+(print (boolean-implies nil nil))
+(print (boolean-implies nil t))
 
 ;; Return the bi-implication (if and only if) of a and b
 ;;
@@ -93,9 +110,12 @@
 ;; (boolean-iff t nil) => nil
 ;; (boolean-iff nil nil) => t
 (defun boolean-iff (a b)
-(EQ a b)
+  (eq a b)
 )
 
+(print 7)
+(print (boolean-iff t nil))
+(print (boolean-iff nil nil))
 
 ;; Evaluate a boolean expression.
 ;; Handle NOT, AND, OR, XOR, IMPLIES, and IFF.

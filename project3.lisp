@@ -124,5 +124,32 @@
 ;; (boolean-eval '(and t nil)) => nil
 ;; (boolean-eval '(and t (or nil t)) => t
 (defun boolean-eval (exp)
-;;<Your implementation go here >
+  (cond
+    ((or (equal exp t) (equal exp nil)) exp)
+    ; This is the base case that tells us that we are at a terminal character
+    ((equal (car exp) 'not)
+     (not (boolean-eval (cdr exp)))
+    )
+    ; handles not
+    ((equal (car exp) 'and)
+     (and (boolean-eval (car (cdr exp))) (boolean-eval (car (cdr (cdr exp)))))
+    )
+    ; handles and
+    ((equal (car exp) 'or)
+     (or (boolean-eval (car (cdr exp))) (boolean-eval (car (cdr (cdr exp)))))
+    )
+    ; handles or
+    ((equal (car exp) 'xor)
+     (boolean-xor (boolean-eval (car (cdr exp))) (boolean-eval (car (cdr (cdr exp)))))
+    )
+    ; handles xor
+    ((equal (car exp) 'implies)
+     (boolean-implies (boolean-eval (car (cdr exp))) (boolean-eval (car (cdr (cdr exp)))))
+    )
+    ; handles implies
+    ((equal (car exp) 'iff)
+     (boolean-iff (boolean-eval (car (cdr exp))) (boolean-eval (car (cdr (cdr exp)))))
+    )
+    ; handles iff
+  )
 )

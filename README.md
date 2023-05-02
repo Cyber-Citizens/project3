@@ -7,4 +7,3 @@ To run, execute this command:
 ````
 sbcl --script project3.lisp
 ````
-Or just check github actions tab lol
